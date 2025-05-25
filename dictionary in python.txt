@@ -1,0 +1,133 @@
+Dictionary In Python:
+
+A Dictionary in Python is a collection of key-value pairs, defined using {} (curly braces). It is mutable, meaning it can be modified.
+
+1. Creating a Dictionary
+
+# Empty dictionary
+empty_dict = {}
+
+# Dictionary with key-value pairs
+student = {"name":"rajesh","age":21,"city":"Delhi"}
+print(student)  
+
+
+2. Accessing Dictionary Data
+# Accessing by key
+print(student["name"])  				
+print(student["gender"])                        	
+
+# Using get() method (returns None if key doesn't exist)
+print(student.get("age"))   				
+print(student.get("gender")) 				
+
+
+3. Accessing Dictionary through loop
+
+for key in student:
+    print(key, ":", student[key])
+
+
+for key, value in student.items():  	
+    print(f"{key}: {value}")
+
+
+
+4. Updating a Dictionary
+# Updating an existing key
+student["age"] = 22
+
+# Adding a new key-value pair
+student["gender"] = "Male"
+
+print(student)               
+
+
+
+
+
+5. Important Dictionary Methods
+
+# keys() – Get all keys
+print(student.keys())  
+# Output: dict_keys(['name', 'age', 'course', 'gender'])
+
+# values() – Get all values
+print(student.values())  
+# Output: dict_values(['Rahul', 22, 'B.Tech', 'Male'])
+
+# items() – Get key-value pairs
+print(student.items())  
+# Output: dict_items([('name', 'Rahul'), ('age', 22), ('course', 'B.Tech'), ('gender', 'Male')])
+
+# pop() – Remove a specific key
+student.pop("course")
+print(student)  
+# Output: {'name': 'Rahul', 'age': 22, 'gender': 'Male'}
+
+# popitem() – Remove the last item
+student.popitem()
+print(student)  
+# Output: {'name': 'Rahul', 'age': 22}
+
+# update() – Add multiple key-value pairs
+student.update({"city": "Delhi", "marks": 85})
+print(student)
+# Output: {'name': 'Rahul', 'age': 22, 'city': 'Delhi', 'marks': 85}
+
+
+=======================================================
+
+Task:
+create a dictionary that having key as 1 to 10 and values as square from 1 to 10 : like
+{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10:100}
+
+
+
+
+
+Task:
+use above task but with only even numbers ?
+{2: 4, 4: 16, 6: 36, 8: 64, 10: 100}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Solution:
+n= {x:x**2 for x in range(1,11)}
+print(n)
+
+
+
+
+
+
+2.Solution:
+n= {x:x**2 for x in range(1,11) if x%2==0}
+print(n)
+
+
+

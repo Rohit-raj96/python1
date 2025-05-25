@@ -1,0 +1,258 @@
+============================STRING IN PYTHON=======================================
+
+What is a Unicode String in Python?
+Unicode is a coding system that assigns a unique number (code point) to every character in all languages and symbols worldwide. Python uses Unicode to store and process text, including English, Hindi, emojis, etc.
+
+
+What is a Unicode Code Point?
+Each character (letter or symbol) has a unique number, known as the Unicode Code Point. You can get this using the ord() function.
+
+print(ord('A'))      # Output: 65
+
+
+
+Converting Unicode Code Point to Character
+If you have a Unicode number, you can get the corresponding character using chr().
+print(chr(65))        # Output: A
+print(chr(128522))   #emoji
+
+
+
+
+Using Escape Sequences for Unicode
+Unicode can be written using \u (4-digit) 
+
+
+
+Devanagari[1]
+Official Unicode Consortium code chart (PDF)
+ 	0	1	2	3	4	5	6	7	8	9	A	B	C	D	E	F
+U+090x	ऀ	ँ	ं	ः	ऄ	अ	आ	इ	ई	उ	ऊ	ऋ	ऌ	ऍ	ऎ	ए
+U+091x	ऐ	ऑ	ऒ	ओ	औ	क	ख	ग	घ	ङ	च	छ	ज	झ	ञ	ट
+U+092x	ठ	ड	ढ	ण	त	थ	द	ध	न	ऩ	प	फ	ब	भ	म	य
+U+093x	र	ऱ	ल	ळ	ऴ	व	श	ष	स	ह	ऺ	ऻ	़	ऽ	ा	ि
+U+094x	ी	ु	ू	ृ	ॄ	ॅ	ॆ	े	ै	ॉ	ॊ	ो	ौ	्	ॎ	ॏ
+U+095x	ॐ	॑	॒	॓	॔	ॕ	ॖ	ॗ	क़	ख़	ग़	ज़	ड़	ढ़	फ़	य़
+U+096x	ॠ	ॡ	ॢ	ॣ	।	॥	०	१	२	३	४	५	६	७	८	९
+U+097x	॰	ॱ	ॲ	ॳ	ॴ	ॵ	ॶ	ॷ	ॸ	ॹ	ॺ	ॻ	ॼ	ॽ	ॾ	ॿ
+
+
+
+==============================STRING FORMATTING========================================================
+
+
+String Formatting in Python
+String formatting allows you to insert variables into a string in a structured way. Python provides multiple methods for formatting strings:
+
+
+1️ Using f-strings (Python 3.6+)
+The most modern and recommended method.
+
+name = "Alice"
+age = 25
+print(f"My name is {name} and I am {age} years old.")
+
+
+You can also do calculations inside f-strings:
+print(f"Next year, I will be {age + 1} years old.")
+
+
+
+
+2 Using .format() Method (Python 3+)
+This method allows inserting values using {} placeholders.
+
+name = "Bob"
+age = 30
+print("My name is {0} and I am {1} years old.".format(name, age))
+
+
+
+3️ Using % Operator (Old method, Python 2 & 3)
+The % operator works similarly to C-style formatting.
+
+name = "David"
+age = 40
+print("My name is %s and I am %d years old." % (name, age))
+
+
+pi = 3.14159
+print("Pi value: %.2f" % pi)  # Show 2 decimal places
+
+
+
+Comparison of Methods
+Method		Readability	Performance	Python Version
+f-strings	Best	 	Fastest		Python 3.6+
+.format()	 Good	 	Slower		Python 3+
+% operator	 Outdated	 Slowest	Python 2 & 3
+
+
+
+================================ String Slicing =====================
+
+
+String Slicing in Python
+String slicing is used to extract a substring from a given string. The syntax is:  
+
+python
+string[start:stop:step]
+
+
+Slicing Rules:
+1. start – The index where the slice begins (inclusive).
+2. stop – The index where the slice ends (exclusive).
+3. step – Defines the interval between characters to be taken.
+
+Examples:
+
+text = "Python Programming"
+
+1. Extract the first 6 characters
+print(text[0:6])  # Output: Python
+
+ 2. Extract characters from index 7 to the end
+print(text[7:])   # Output: Programming
+
+ 3. Extract the first 6 characters, skipping every second character
+print(text[0:6:2])  # Output: Pto
+
+ 4. Reverse the entire string
+print(text[::-1])  # Output: gnimmargorP nohtyP
+
+ 5. Extract the last 5 characters
+print(text[-5:])  # Output: mming
+
+
+You can adjust start, stop, and step as needed.
+
+
+
+=============================================
+
+:: (double colon) in Python string slicing is used when the start, stop, or step values are omitted. Let's break down how it works.
+
+
+The slicing syntax is:
+
+string[start:stop:step]
+
+start and stop are omitted but step is given, the entire string is considered.
+- If only step is given as -1, it reverses the string.
+
+text = "Python Programming"
+
+1. Using :: without start and stop (selects entire string)
+print(text[::1])  # Output: Python Programming  (normal order)
+
+2. Using :: with step = 2 (every second character)
+print(text[::2])  # Output: Pto rgamn
+
+3. Using :: with step = -1 (reverses the string)
+print(text[::-1])  # Output: gnimmargorP nohtyP
+
+ 4. Using :: with step = -2 (reverses and skips every second character)
+print(text[::-2])  # Output: gimroPhy
+
+
+
+===========================
+
+Understanding text[-5:] in Python String Slicing  
+
+
+text[start:stop:step]
+
+- start = -5 → Start from the *5th character from the end*.
+- stop = (empty) → Go till the *end of the string*.
+- step = 1 (default) → Move *one character at a time*.
+
+text = "Python Programming"
+
+# Extract the last 5 characters
+print(text[-5:])  # Output: "mming"
+
+ 
+
+| P | y | t | h | o | n |   | P | r | o | g | r | a | m | m | i | n | g |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| -18 | -17 | -16 | -15 | -14 | -13 | -12 | -11 | -10 | -9 | -8 | -7 | -6 | *-5* | *-4* | *-3* | *-2* | *-1* |
+
+- -5 corresponds to 'm' in "Programming".
+- Since stop is not defined, slicing continues till the end of the string.
+- It extracts "mming".
+
+
+
+===================================STRING METHODS===================================
+
+
+
+String Methods in Python 
+
+Python provides several built-in string methods to manipulate and process strings.  
+
+1. Case Conversion
+
+text = "Hello World"
+
+print(text.upper())   	 # Output: "HELLO WORLD"
+print(text.lower())    	# Output: "hello world"
+print(text.title())   	 # Output: "Hello World"
+print(text.capitalize())  # Output: "Hello world"
+print(text.swapcase()) 	# Output: "hELLO wORLD"
+
+
+---
+
+2. Checking String Properties
+
+print("hello".isalpha())  	 # True (Only alphabets)
+print("123".isdigit())    	 # True (Only digits)
+print("Hello123".isalnum()) 	 # True (Alphanumeric)
+print("   ".isspace())     	# True (Only spaces)
+print("Hello".isupper())   	# False (Not all uppercase)
+print("hello".islower())   	# True (All lowercase)
+print("Hello World".istitle()) 	# True (Each word capitalized)
+
+
+---
+
+3. Searching and Replacing
+
+text = "Hello World"
+
+print(text.find("World"))   # Output: 6 (Index of first occurrence)
+print(text.index("World"))  # Output: 6 (Same as find, but raises error if not found)
+print(text.replace("World", "Python"))  # Output: "Hello Python"
+print(text.count("o"))      # Output: 2 (Number of occurrences)
+print(text.startswith("Hello"))  # Output: True
+print(text.endswith("World"))    # Output: True
+
+
+---
+
+4. Splitting and Joining
+
+text = "apple,banana,grape"
+
+print(text.split(","))  			# Output: ['apple', 'banana', 'grape']
+print("-".join(["apple", "banana", "grape"]))  # Output: "apple-banana-grape"
+
+
+---
+
+5. Stripping Whitespaces
+
+text = "  Hello World  "
+
+print(text.strip())   # Output: "Hello World" (Removes leading and trailing spaces)
+print(text.lstrip())  # Output: "Hello World  " (Removes left spaces)
+print(text.rstrip())  # Output: "  Hello World" (Removes right spaces)
+
+
+
+
+
+
+
